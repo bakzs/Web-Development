@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+	<h1>Register</h1>
+
+<form>
+	<div>
+		
+		<label for="first name">First Name:</label>
+		<input id="first name" type="text" name="firstname" placeholder="John" required>
+		<label for="last name">Last Name:</label>
+		<input id="last name" type="text" name="lastname" placeholder="Smith" required>
+	</div>
+	
+	<div>
+		<label for="Male">Male</label>
+		<input id="Male" type="radio" name="Sex" required>
+		<label for="Female">Female</label>
+		<input id="Female" type="radio" name="Sex" >
+		<label for="Other">Other</label>
+		<input id="Other" type="radio" name="Sex" >
+
+	</div>
+	
+	<div>
+		<label for="email">Email:</label>
+		<input id="email" type="email" name="email" placeholder="your email" required>
+		<label for="password">Password:</label>
+		<input id="password" type="password" name="password" placeholder="your password" pattern=".{5,10}" title="Password must be between 5 and 10 characters" required>
+	</div>
+
+	
+	<div>
+		<label>Birthday:</label>
+		<select name="Month" required>
+			<option>Month</option>
+			<option value="January">January</option>
+			<option>February</option>
+			<option>March</option>
+			<option>April</option>
+			<option>May</option>
+			<option>June</option>
+			<option>July</option>
+			<option>August</option>
+			<option>September</option>
+			<option>October</option>
+			<option>November</option>
+			<option>December</option>
+		</select>
+
+		<select name="Day" required>
+			<option>Day</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+		</select>
+
+		<select name="Year" required>
+			<option>Year</option>
+			<option value="2018">2018</option>
+			<option value="2019">2019</option>
+		</select>
+
+	</div>
+	
+	<div>
+		<label for="t&c">I agree to the terms and conditions</label>
+		<input id="t&c" type="checkbox" name="t&c" required>
+
+	</div>
+	
+
+	<input type="submit" name="submit">
+
+</form>
+
+</body>
+</html>
