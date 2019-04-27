@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="js/paper-full.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.js"></script>
+<link rel="stylesheet" text="text/css" href="patapap.css">
+<script type="text/paperscript" canvas="myCanvas">
+        
+        var circles = [];
+
+        
+        var keyData = {
+                a: {
+                        color: "purple",
+                        sound: new Howl({
+                                src:['sounds/bubbles.mp3'],
+                                html5: true
+                                
+                        })
+                        
+                },
+                
+                s: {
+                        color:"green",
+                        sound: new Howl({
+                                src:['sounds/clay.mp3'],
+                                html5: true
+                                
+                        })
+                },
+
+                d: {
+                        color:"red",
+                        sound: new Howl({
+                                src:['sounds/confetti.mp3'],
+                                html5:true
+                        })
+                }
+        }
+        
+        function onKeyDown(event){
+
+
+                if (keyData[event.key]){
+                        var maxP = new Point(view.size.width, view.size.height)
+                        var rando = Point.random();
+                        var point = maxP * rando;
+                        var newCircle = new Path.Circle(point,500);
+                        newCircle.fillColor = keyData[event.key].color;
+                        keyData[event.key].sound.play();
+                        circles.push(newCircle);
+
+                }
+                
+        }
+        
+       
+        function onFrame(event){
+                for(var i=0; i<circles.length; i++){
+                        circles[i].fillColor.hue += 1;
+                        circles[i].scale(.9);
+                        if(circles[i].area < 1){
+                                circles[i].remove();
+                                circles.splice(i,1);
+                                console.log(circles);
+                        }
+                }
+                
+        }
+        
+        
+        
+    
+</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
